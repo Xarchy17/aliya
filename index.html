@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You ❤️</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="floating-hearts-bg" id="hearts-container"></div>
+
+    <div class="container">
+        <!-- Screen 1: Intro -->
+        <section id="screen-intro" class="screen active">
+            <h1 class="title">Hi Beby!</h1>
+            <p class="subtitle">something special for you...</p>
+            <button class="btn-primary" onclick="nextScreen('screen-gallery')">See Surprise</button>
+        </section>
+
+        <!-- Screen 2: Gallery / Memory -->
+        <section id="screen-gallery" class="screen hidden">
+            <h2>My favorite kind of beautiful📸</h2>
+            <div class="gallery">
+                <!-- Real Images -->
+                <div class="photo-card" style="animation-delay: 0.1s;">
+                    <img src="foto1.jpg" alt="Our Memory 1" class="gallery-img">
+                </div>
+                <div class="photo-card" style="animation-delay: 0.3s;">
+                    <img src="foto2.jpg" alt="Our Memory 2" class="gallery-img">
+                </div>
+                <div class="photo-card" style="animation-delay: 0.5s;">
+                    <img src="foto3.jpg" alt="Our Memory 3" class="gallery-img">
+                </div>
+            </div>
+            <p class="caption">Aliyah Putri Khairunnisa.</p>
+            <button class="btn-primary" onclick="nextScreen('screen-question')">Next</button>
+        </section>
+
+        <!-- Screen 3: Video Special -->
+        <section id="screen-question" class="screen hidden">
+
+            <div class="video-container">
+                <video controls class="special-video">
+                    <source src="video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <button class="btn-primary" onclick="handleYes()">Finish</button>
+        </section>
+
+        <!-- Screen 4: Success -->
+        <section id="screen-success" class="screen hidden">
+            <h1>Yeaayy!</h1>
+            <p>I love you so much, beeyy ʕ•ᴥ•ʔ</p>
+            <div class="love-letter">
+                Aku nulis ini bukan karena pengin keliatan puitis. Ada banyak hal tentang kamu yang selama ini belum
+                sempat benar-benar aku omongin, dan rasanya lebih enak kalau aku tuangin lewat tulisan. Biar kamu bisa
+                bacanya pelan-pelan.
+
+                Jujur aja, kamu punya tempat yang beda di hidup aku. Bukan karena kamu harus jadi sosok yang sempurna,
+                tapi karena kamu jadi diri kamu sendiri dan itu sudah cukup bikin aku nyaman. Cara kamu ketawa, cara
+                kamu cerita, bahkan saat kamu lagi ngambek, semuanya bikin aku ngerasa kalau kamu adalah orang yang
+                ingin aku jaga.
+
+                Aku sayang sama sisi kamu yang kuat, tapi aku juga sayang sama sisi kamu yang lagi capek dan butuh diam.
+                Dari kamu, aku belajar kalau rasa sayang itu bukan cuma ada di momen bahagia, tapi juga di saat-saat
+                kita lagi gak baik-baik aja.
+
+                Kita pernah salah paham, pernah saling diam, bahkan pernah ribet sama hal-hal kecil. Tapi pada akhirnya,
+                aku tetap milih kamu. Bukan karena gak ada pilihan lain, tapi karena di hati aku, kamu memang orangnya.
+                Orang yang pengin aku hadapi bareng, entah itu di masa susah atau masa bahagia.
+
+                Mungkin kamu gak sadar, tapi kamu banyak ngubah cara aku melihat diri sendiri. Lewat kamu, aku belajar
+                buat lebih sabar, lebih ngerti, dan lebih jujur sama perasaan. Kamu bukan cuma orang yang aku sayang,
+                tapi juga alasan kenapa aku pengin jadi pribadi yang lebih baik.
+
+                Aku gak butuh kamu selalu kuat atau selalu kelihatan ceria. Kalau suatu hari kamu lagi gak baik-baik
+                aja, aku pengin kamu inget kalau kamu gak sendirian. Di depan aku, kamu gak perlu jadi siapa-siapa. Jadi
+                diri kamu aja udah cukup.
+
+                Beby, rasa yang aku punya buat kamu sederhana. Gak berlebihan, gak dibuat-buat, tapi tulus. Aku pengin
+                jalanin semuanya bareng kamu pelan-pelan, tanpa terburu-buru, dan tanpa harus berubah jadi orang lain.
+
+                Makasih sudah ada di hidup aku, dengan semua versi kamu, yang senang maupun yang berat. Makasih karena
+                kamu bikin aku ngerasa kalau rumah itu bisa hadir dalam bentuk seseorang.
+
+                Kalau suatu hari nanti kita ketemu hal yang lebih berat, aku cuma berharap kita tetap saling memilih.
+                Bukan selalu yang paling sempurna, tapi yang tetap bertahan.
+
+                Dan kalau kamu tanya kenapa tetap kamu, jawabannya sederhana. Karena sama kamu, semuanya terasa paling
+                jujur.
+            </div>
+            <div class="bonus-gallery">
+                <div class="bonus-card rotate-left">
+                    <img src="gallery1.jpg" alt="Bonus 1">
+                </div>
+                <div class="bonus-card center">
+                    <img src="gallery2.jpg" alt="Bonus 2">
+                </div>
+                <div class="bonus-card rotate-right">
+                    <img src="gallery3.jpg" alt="Bonus 3">
+                </div>
+            </div>
+            <p class="message-final">Terima kasih udah hadir di hidup aku.</p>
+            <button class="btn-secondary" onclick="restart()">Replay (｡♥‿♥｡)</button>
+        </section>
+    </div>
+
+    <!-- Background Music -->
+    <audio id="bg-music" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
